@@ -1,0 +1,130 @@
+name: Publish images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  php_71:
+    strategy:
+      matrix:
+        prestashop:
+          - '1.7.7.0'
+          - '1.7.7.1'
+          - '1.7.7.2'
+          - '1.7.7.3'
+          - '1.7.7.4'
+          - '1.7.7.5'
+          - '1.7.7.6'
+          - '1.7.7.7'
+          - '1.7.7.8'
+          - '1.7.8.0'
+          - '1.7.8.1'
+          - '1.7.8.2'
+          - '1.7.8.3'
+          - '1.7.8.4'
+          - '1.7.8.5'
+          - '1.7.8.6'
+          - '1.7.8.7'
+          - '1.7.8.8'
+        webserver:
+          - 'apache'
+          - 'fpm'
+    uses: ./.github/workflows/publish.yml
+    with:
+      ps-version: ${{ matrix.prestashop }}
+      php-version: '7.1'
+      webserver: ${{ matrix.webserver }}
+      platforms: 'linux/amd64,linux/arm64'
+    secrets: inherit
+
+  php_72:
+    strategy:
+      matrix:
+        prestashop:
+          - '1.7.7.0'
+          - '1.7.7.1'
+          - '1.7.7.2'
+          - '1.7.7.3'
+          - '1.7.7.4'
+          - '1.7.7.5'
+          - '1.7.7.6'
+          - '1.7.7.7'
+          - '1.7.7.8'
+          - '1.7.8.0'
+          - '1.7.8.1'
+          - '1.7.8.2'
+          - '1.7.8.3'
+          - '1.7.8.4'
+          - '1.7.8.5'
+          - '1.7.8.6'
+          - '1.7.8.7'
+          - '1.7.8.8'
+        webserver:
+          - 'apache'
+          - 'fpm'
+    uses: ./.github/workflows/publish.yml
+    with:
+      ps-version: ${{ matrix.prestashop }}
+      php-version: '7.2'
+      webserver: ${{ matrix.webserver }}
+      platforms: 'linux/amd64,linux/arm64'
+    secrets: inherit
+
+  php_73:
+    strategy:
+      matrix:
+        prestashop:
+          - '1.7.7.0'
+          - '1.7.7.1'
+          - '1.7.7.2'
+          - '1.7.7.3'
+          - '1.7.7.4'
+          - '1.7.7.5'
+          - '1.7.7.6'
+          - '1.7.7.7'
+          - '1.7.7.8'
+          - '1.7.8.0'
+          - '1.7.8.1'
+          - '1.7.8.2'
+          - '1.7.8.3'
+          - '1.7.8.4'
+          - '1.7.8.5'
+          - '1.7.8.6'
+          - '1.7.8.7'
+          - '1.7.8.8'
+        webserver:
+          - 'apache'
+          - 'fpm'
+    uses: ./.github/workflows/publish.yml
+    with:
+      ps-version: ${{ matrix.prestashop }}
+      php-version: '7.3'
+      webserver: ${{ matrix.webserver }}
+      platforms: 'linux/amd64,linux/arm64'
+    secrets: inherit
+
+  php_74:
+    strategy:
+      matrix:
+        prestashop:
+          - '1.7.8.0'
+          - '1.7.8.1'
+          - '1.7.8.2'
+          - '1.7.8.3'
+          - '1.7.8.4'
+          - '1.7.8.5'
+          - '1.7.8.6'
+          - '1.7.8.7'
+          - '1.7.8.8'
+        webserver:
+          - 'apache'
+          - 'fpm'
+    uses: ./.github/workflows/publish.yml
+    with:
+      ps-version: ${{ matrix.prestashop }}
+      php-version: '7.4'
+      webserver: ${{ matrix.webserver }}
+      platforms: 'linux/amd64,linux/arm64'
+    secrets: inherit
